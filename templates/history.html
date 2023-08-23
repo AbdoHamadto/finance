@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1>His</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col">Symbols</th>
+                <th class="col">Price</th>
+                <th class="col">Shares</th>
+                <th class="col">Type</th>
+                <th class="col">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in information %}
+                <tr>
+                    <td>{{row["name"]}}</td>
+                    <td>${{row["price"] | round}}</td>
+                    <td>${{row["shares"]}}</td>
+                    <td>${{row["type"]}}</td>
+                    <td>${{row["time"]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

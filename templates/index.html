@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col">Symbols</th>
+                <th class="col">Shares</th>
+                <th class="col">Price</th>
+                <th class="col">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in database %}
+                <tr>
+                    <td>{{row["name"]}}</td>
+                    <td>${{row["shares"]}}</td>
+                    <td>${{row["price"]}}</td>
+                    <td>${{total}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <th>Cash</th>
+                <th>${{ cash }}</th>
+            </tr>
+        </tfoot>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <th>Total</th>
+                <th>$10000</th>
+            </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}
